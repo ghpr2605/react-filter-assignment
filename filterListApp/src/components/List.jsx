@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const List = ({ data }) => {
+const List = ({ data, checkIfFiltered }) => {
   const [list, updateList] = useState(data);
   const filterList = (event) => {
     const keyWord = event.target.value;
@@ -11,6 +11,7 @@ const List = ({ data }) => {
       : data;
 
     updateList(filteredList);
+    checkIfFiltered(keyWord ? true : false);
   };
 
   return (
