@@ -4,7 +4,7 @@ import Hello from "./Hello";
 import List from "./List";
 
 const Application = () => {
-  const [list] = useState({
+  const [list, setState] = useState({
     name: "Pranay",
     data: [
       "BMW",
@@ -15,14 +15,20 @@ const Application = () => {
       "Mercedes",
       "Lamborghini",
       "Porsche"
-    ]
+    ],
+    isListFiltered: false
   });
 
-  const { name, data } = list;
+  const updateFilterFlag = (flag) => {
+    setState({ ...list, isListFiltered: flag });
+  };
+
+  const { name, data, isListFiltered } = list;
   return (
     <div className="Center">
       <Hello name={name} />
-      <List data={data} />
+      <List data={data} checkIfFiltered={(val) => updateFilterFlag(val)} />
+      <h3>`{`Is List Filtered ? - ${isListFiltered}`}</h3>
     </div>
   );
 };
