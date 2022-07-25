@@ -4,7 +4,7 @@ import Hello from "./Hello";
 import List from "./List";
 
 const Application = () => {
-  const [list, setList] = useState({
+  const [list] = useState({
     name: "Pranay",
     data: [
       "BMW",
@@ -17,6 +17,7 @@ const Application = () => {
       "Porsche"
     ]
   });
+
   const { name, data } = list;
   return (
     <div className="Center">
