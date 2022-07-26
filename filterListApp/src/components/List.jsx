@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const List = ({ data, checkIfFiltered }) => {
-  const [list, updateList] = useState(data);
+  const [list, setList] = useState(data);
   const filterList = (event) => {
     const keyWord = event.target.value;
     const filteredList = keyWord
@@ -10,7 +10,7 @@ const List = ({ data, checkIfFiltered }) => {
         })
       : data;
 
-    updateList(filteredList);
+    setList(filteredList);
     checkIfFiltered(keyWord ? true : false);
   };
 

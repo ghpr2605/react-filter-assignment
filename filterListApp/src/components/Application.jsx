@@ -4,7 +4,7 @@ import Hello from "./Hello";
 import List from "./List";
 
 const Application = () => {
-  const [list, setState] = useState({
+  const [list, setList] = useState({
     name: "Pranay",
     data: [
       "BMW",
@@ -20,7 +20,12 @@ const Application = () => {
   });
 
   const updateFilterFlag = (flag) => {
-    setState({ ...list, isListFiltered: flag });
+    setList((prevList) => {
+      return {
+        ...prevList,
+        isListFiltered: flag
+      };
+    });
   };
 
   const { name, data, isListFiltered } = list;
